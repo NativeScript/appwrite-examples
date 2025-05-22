@@ -1,18 +1,57 @@
-<ActionBar title="NativeScript with Appwrite" class="bg-[#56565c] text-white"> </ActionBar>
+<ActionBar title="NativeScript with Appwrite" class="bg-[#56565c] text-white">
+</ActionBar>
 
-<GridLayout rows="auto,auto,*">
+<GridLayout rows="auto,auto,*" class="pt-4">
   <Image src="~/assets/images/appwrite.png" class="h-[75] m-4"></Image>
+  @if (isAuthenticated()) {
   <TextField
     row="1"
     (textChange)="onTextChange($event)"
+    (returnPress)="addMessage()"
     hint="Add a message..."
-    class="p-4 mx-4 border border-gray-100 bg-[#56565c]"
+    class="p-4 mx-4 border-2 border-gray-100 bg-[#56565c]"
   ></TextField>
-  <ListView row="2" [items]="itemService.items()" class="mt-2 bg-[#56565c]">
+  <ListView
+    row="2"
+    [items]="appWriteService.messages()"
+    class="mt-2 bg-[#56565c]"
+  >
     <ng-template let-item="item">
-      <StackLayout [nsRouterLink]="['/item', item.id]">
-        <Label [text]="item.name" class="text-lg text-white p-4"></Label>
+      <StackLayout class="bg-[#56565c]">
+        <Label [text]="item.message" class="text-lg text-white p-4"></Label>
       </StackLayout>
     </ng-template>
   </ListView>
+  @if (adding()) {
+  <ActivityIndicator row="2" [busy]="true" class="text-white" />
+  } } @else {
+  <GridLayout row="2" rows="100,auto,auto,auto,*" [formGroup]="formGroup">
+    <TextField
+      row="1"
+      formControlName="email"
+      autocapitalizationType="none"
+      autocorrect="false"
+      hint="Email"
+      class="p-4 mx-4 border-2 border-gray-100 bg-[#56565c]"
+    ></TextField>
+    <TextField
+      row="2"
+      formControlName="password"
+      autocapitalizationType="none"
+      autocorrect="false"
+      secure="true"
+      hint="Password"
+      (returnPress)="login()"
+      class="p-4 mx-4 mt-4 border-2 border-gray-100 bg-[#56565c]"
+    ></TextField>
+    <Button
+      row="3"
+      text="Login"
+      (tap)="login()"
+      class="mx-4 mt-6 rounded-lg bg-[#FD366E] text-white font-bold p-4"
+    ></Button>
+  </GridLayout>
+  } @if (loggingIn()) {
+  <ActivityIndicator rowSpan="3" [busy]="true" class="text-white" />
+  }
 </GridLayout>

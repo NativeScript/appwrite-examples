@@ -26,3 +26,7 @@ APP_WRITE_PROJECT_ID=[YOUR_APPWRITE_PROJECT_ID]
 ```
 npx nx debug demo-angular ios
 ```
+
+### Try Others?
+
+Want to try more flavors? Try adding one, the [AppWrite](packages/nativescript-data/src/lib/appwrite.ts) data service is shareable across any!
