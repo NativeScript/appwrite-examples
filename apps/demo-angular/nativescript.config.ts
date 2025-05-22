@@ -2,7 +2,7 @@ import { NativeScriptConfig } from '@nativescript/core';
 
 export default {
   id: 'org.nativescript.demoangular',
-  appResourcesPath: 'App_Resources',
+  appResourcesPath: '../../tools/App_Resources',
   android: {
     v8Flags: '--expose_gc',
     markingMode: 'none',

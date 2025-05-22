@@ -4,7 +4,8 @@
   "license": "SEE LICENSE IN <your-license-filename>",
   "version": "0.0.0",
   "dependencies": {
-    "@nativescript/core": "*"
+    "@nativescript/core": "~8.9.0",
+    "@nativescript/appwrite": "^0.0.1"
   },
   "devDependencies": {
     "@nativescript/android": "~8.9.0",

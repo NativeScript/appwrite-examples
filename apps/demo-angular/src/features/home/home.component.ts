@@ -3,8 +3,9 @@ import {
   NativeScriptCommonModule,
   NativeScriptRouterModule,
 } from '@nativescript/angular';
-import { Page } from '@nativescript/core';
+import { Page, TextField } from '@nativescript/core';
 import { ItemService, Item } from '../../core/services/item.service';
+import { AppwriteService } from '../../core/services/appwrite.service';
 
 @Component({
   selector: 'ns-home',
@@ -13,17 +14,19 @@ import { ItemService, Item } from '../../core/services/item.service';
   schemas: [NO_ERRORS_SCHEMA],
 })
 export class HomeComponent {
+  appWriteService = inject(AppwriteService);
   itemService = inject(ItemService);
   page = inject(Page);
 
   constructor() {
-    // Setup large titles on iOS
-    this.page.on('loaded', (args) => {
-      if (__IOS__) {
-        const navigationController: UINavigationController =
-          this.page.frame.ios.controller;
-        navigationController.navigationBar.prefersLargeTitles = true;
-      }
-    });
+    if (__ANDROID__) {
+      this.page.actionBarHidden = true;
+    }
+  }
+
+  onTextChange(args: any) {
+    const textField = args.object as TextField;
+    const value = textField.text;
+    console.log('Text changed:', value);
   }
 }

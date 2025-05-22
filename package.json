@@ -1,8 +1,10 @@
 {
-  "name": "@appwrite-examples/source",
+  "name": "@workspace/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "setup": "npx rimraf hooks node_modules && npm install && nx run-many --target=clean --all"
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.0.0",
@@ -15,17 +17,26 @@
     "@ngtools/webpack": "^19.0.0",
     "@nx/eslint": "20.8.2",
     "@nx/eslint-plugin": "20.8.2",
+    "@nx/jest": "21.1.1",
     "@nx/js": "21.1.1",
     "@nx/workspace": "21.1.1",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.0.0",
     "ajv": "~8.17.0",
+    "dotenv": "^16.5.0",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsonc-eslint-parser": "^2.1.0",
     "nx": "21.1.1",
     "prettier": "^2.6.2",
     "tailwindcss": "~3.4.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "10.9.1",
     "tslib": "^2.3.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.19.0"
@@ -40,6 +51,7 @@
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
     "@nativescript/angular": "^19.0.0",
+    "@nativescript/appwrite": "^0.0.3",
     "@nativescript/core": "~8.9.0",
     "rxjs": "~7.8.0",
     "zone.js": "^0.15.0"

@@ -1,0 +1,29 @@
+{
+  "name": "nativescript-data",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/nativescript-data/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/nativescript-data",
+        "main": "packages/nativescript-data/src/index.ts",
+        "tsConfig": "packages/nativescript-data/tsconfig.lib.json",
+        "assets": ["packages/nativescript-data/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/nativescript-data/jest.config.ts"
+      }
+    }
+  }
+}

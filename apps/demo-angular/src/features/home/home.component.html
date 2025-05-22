@@ -1,10 +1,17 @@
-<ActionBar title="My App"> </ActionBar>
+<ActionBar title="NativeScript with Appwrite" class="bg-[#56565c] text-white"> </ActionBar>
 
-<GridLayout>
-  <ListView [items]="itemService.items()">
+<GridLayout rows="auto,auto,*">
+  <Image src="~/assets/images/appwrite.png" class="h-[75] m-4"></Image>
+  <TextField
+    row="1"
+    (textChange)="onTextChange($event)"
+    hint="Add a message..."
+    class="p-4 mx-4 border border-gray-100 bg-[#56565c]"
+  ></TextField>
+  <ListView row="2" [items]="itemService.items()" class="mt-2 bg-[#56565c]">
     <ng-template let-item="item">
       <StackLayout [nsRouterLink]="['/item', item.id]">
-        <Label [text]="item.name" class="text-lg text-gray-500 p-4"></Label>
+        <Label [text]="item.name" class="text-lg text-white p-4"></Label>
       </StackLayout>
     </ng-template>
   </ListView>
