@@ -45,7 +45,7 @@
     "zone.js": "^0.15.0"
   },
   "nativescript-nx": {
-    "prefix": "",
+    "prefix": "aw",
     "framework": "angular"
   }
 }
