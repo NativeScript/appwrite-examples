@@ -77,12 +77,12 @@ export class HomeComponent {
     this.currentMessage.set(value);
   }
 
-  addMessage() {
+  async addMessage() {
     if (!this.currentMessage()) {
       return;
     }
     this.adding.set(true);
-    const result = this.appWriteService.data.createDocument({
+    const result = await this.appWriteService.data.createDocument({
       message: this.currentMessage(),
       createdAt: new Date().toISOString(),
     });
