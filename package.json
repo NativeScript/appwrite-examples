@@ -1,0 +1,13 @@
+{
+  "name": "@appwrite-examples/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@nx/js": "21.1.1",
+    "@nx/workspace": "21.1.1",
+    "nx": "21.1.1"
+  }
+}
